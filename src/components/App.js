@@ -1,11 +1,38 @@
-import {h} from 'preact';
+import {h, Component} from 'preact';
+import User from './User';
 
-const App = () => {
-    return (
-        <div>
-            Hello World!!!
-        </div>
-    );
-};
+export default class App extends Component {
+    constructor(props) {
+        super(props);
 
-export default App;
+        this.state = {
+            loading: true,
+            user: null
+        };
+    }
+
+    componentDidMount() {
+        fetch(this.props.config.urls.user)
+            .then(resp => resp.json())
+            .then(user => {
+                this.setState({
+                                  user,
+                                  loading: false
+                              });
+            })
+            .catch(err => console.error(err));
+    }
+
+   // render(props, state) {
+    render({config}, {loading, user}) {
+        return (
+            <div class="app">
+                {loading
+                    ? <p>Fetching {config.urls.user}</p>
+                    : <User image={user.avatar_url}
+                            name={user.name} />
+                }
+            </div>
+        );
+    }
+}
