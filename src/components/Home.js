@@ -10,7 +10,7 @@ export default function Home() {
         <section>
             <p>Enter a Github Username</p>
             <input type="search"
-                   placeholder="eg: shakyshane"
+                   placeholder="username"
                    onSearch={e => search(e.target.value)}
             />
         </section>
