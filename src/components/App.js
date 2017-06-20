@@ -1,5 +1,5 @@
 import {h} from 'preact';
-import { Router } from 'preact-router';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Profile from './Profile';
 import Home from './Home';
 import Error from './Error';
@@ -7,9 +7,11 @@ import Error from './Error';
 export default function App() {
     return (
         <Router>
-            <Home path="/" />
-            <Profile path="/profile/:user"/>
-            <Error default/>
+            <Switch>
+                <Route path='/' component={Home} exact />
+                <Route path='/profile/:user' component={Profile} />
+                <Route component={Error}></Route>
+            </Switch>
         </Router>
     );
 }

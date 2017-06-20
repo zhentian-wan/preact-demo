@@ -17,7 +17,8 @@ export default class Profile extends Component {
     }
 
     componentDidMount() {
-        fetch(`${config.url}/${this.props.user}`)
+        const username = this.props.match.params.user;
+        fetch(`${config.url}/${username}`)
             .then(resp => resp.json())
             .then(user => {
                 this.setState({
