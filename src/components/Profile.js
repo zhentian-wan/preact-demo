@@ -7,7 +7,7 @@ import {connect} from 'preact-redux';
 export class Profile extends Component {
 
     componentDidMount() {
-        const username = this.props.matches.user;
+        const username = this.props.match.params.user;
         this.props.fetchUser(username);
     }
 
