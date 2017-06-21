@@ -26,6 +26,13 @@ module.exports = {
         ]
     },
 
+    resolve: {
+        alias: {
+            'react': 'preact-compat',
+            'react-deom': 'preact-compat'
+        }
+    },
+
     //sourcemaps
     devtool: 'source-map',
 

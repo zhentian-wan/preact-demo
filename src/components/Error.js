@@ -1,13 +1,9 @@
 import {h} from 'preact';
-import {route} from 'preact-router';
-
-const back = (e) => {
-    route('/');
-};
+import {Link} from 'react-router-dom';
 
 export default Error = () => (
     <div>
         <h2>Error!</h2>
-        <button onClick={e => back(e)}>Home</button>
+        <Link to='/'>Home</Link>
     </div>
 );
